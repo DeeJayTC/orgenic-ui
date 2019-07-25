@@ -22,9 +22,17 @@ export namespace Components {
     */
     'disabled': boolean;
     /**
+    * The href can be used when control is in link mode
+    */
+    'href': string;
+    /**
     * The label of the button
     */
     'label': string;
+    /**
+    * Target frame in link mode
+    */
+    'target': string;
   }
   interface OgCalendar {
     'dateDecorator': OgDateDecorator;
@@ -651,6 +659,10 @@ declare namespace LocalJSX {
     */
     'disabled'?: boolean;
     /**
+    * The href can be used when control is in link mode
+    */
+    'href'?: string;
+    /**
     * The label of the button
     */
     'label'?: string;
@@ -658,6 +670,10 @@ declare namespace LocalJSX {
     * Event is being emitted when value changes.
     */
     'onClicked'?: (event: CustomEvent<any>) => void;
+    /**
+    * Target frame in link mode
+    */
+    'target'?: string;
   }
   interface OgCalendar extends JSXBase.HTMLAttributes<HTMLOgCalendarElement> {
     'dateDecorator'?: OgDateDecorator;

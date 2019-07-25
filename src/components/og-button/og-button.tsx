@@ -25,6 +25,18 @@ export class OgButton {
   public disabled: boolean;
 
   /**
+   * The href can be used when control is in link mode
+   */
+  @Prop()
+  public href: string;
+
+  /**
+   * Target frame in link mode
+   */
+  @Prop()
+  public target: string;
+
+  /**
    * Event is being emitted when value changes.
    */
   @Event()
@@ -32,7 +44,12 @@ export class OgButton {
 
   public handleClick(e: MouseEvent) {
     if (!this.disabled) {
-      this.clicked.emit(e);
+      if(this.href != undefined && this.href.length > 0){
+        window.open(this.href, this.target != "" ? "_blank" : this.target);
+      }else{
+        this.clicked.emit(e);
+      }
+
     }
     e.cancelBubble = true;
   }
